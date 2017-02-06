@@ -4,6 +4,5 @@
 # authors: Crosseye Jack
 # url: https://github.com/CrosseyeJack/discourse-twitch-chat
 
+#enabled_site_setting :twitchchat_enabled
 register_asset "stylesheets/chat.scss"
-
-enabled_site_setting :twitchchat_enabled
