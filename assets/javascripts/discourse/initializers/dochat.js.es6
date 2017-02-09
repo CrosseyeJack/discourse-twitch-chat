@@ -1,6 +1,8 @@
 export default {
   name: 'doTwitchChat',
   initialize() {
-    // alert('alert boxes are annoying!');
+		$('#chatbar-button').bind('click', function(e){
+			console.log("Click");
+		});
   }
 };

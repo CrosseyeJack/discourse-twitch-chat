@@ -1,6 +1,10 @@
-#chatbar {
+#chatbar-wrapper {
 	position: fixed;
 	bottom: 0;
 	right: 0;
 	width: 325px;
+}
+
+#chatbar-button {
+	right: 0;
 }
