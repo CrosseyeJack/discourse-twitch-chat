@@ -1,12 +1,25 @@
 #chatbar-wrapper {
-	position: fixed;
+  position: fixed;
 	bottom: 0;
 	right: 0;
 	width: 325px;
 	z-index: 10;
+	display:inline-block;
+}
+
+#chatbar-chat {
+	bottom: 0;
+	height: 523px;
+	display: none;
 }
 
 #chatbar-button {
-	right: 0;
+	float:right;
 	text-align: right;
+	background-color: #6441A4;
+	color: #fff;
+	padding: 2px 5px 2px 0px;
+	display:inline-block;
+	width:50%;
+	border-top-left-radius: 20px;
 }

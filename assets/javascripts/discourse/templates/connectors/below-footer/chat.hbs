@@ -1,12 +1,41 @@
-<div id="chatbar-wrapper">
-	<div id="chatbar-button">Min/Max</div>
-	<div id="chatbar-chat">
-		<iframe frameborder="0" 
-			scrolling="no" 
-			id="chat_embed" 
-			src="//www.twitch.tv/itmejp/chat" 
-			height="500px" 
-			width="325px">
-		</iframe>
-	</div>
-</div>
+{{#if currentUser}}
+	{{#if this.siteSettings.show_twitch_chat}}
+		{{#if currentUser.custom_fields.enable_twitch_chat}}
+			<div id="chatbar-wrapper">
+				<span id="chatbar-button">Loading Chat</span>
+				<div id="chatbar-chat">
+					<iframe frameborder="0" 
+						scrolling="no" 
+						id="chat_embed" 
+						src="//www.twitch.tv/itmejp/chat" 
+						height="500px" 
+						width="325px" >
+					</iframe>
+				</div>
+				<script>
+					(function() {
+						var showChat 	= "Show itmeChat",
+								hideChat 	= "Hide itmeChat",
+								animSpeed	= 0
+						;
+						$( "#chatbar-button" ).on( "click", function() {
+							if ($("#chatbar-chat").is(":visible")) {
+								$("#chatbar-chat").slideUp(animSpeed, function(e) {
+									$("#chatbar-button").text(showChat);
+								});
+							} else {
+								$("#chatbar-chat").slideDown(animSpeed, function(e) {
+									$("#chatbar-button").text(hideChat);
+								});
+							}
+						});
+						if ($("#chatbar-chat").is(":visible")) 
+							$("#chatbar-button").text(hideChat);
+						else
+							$("#chatbar-button").text(showChat);
+					})();
+				</script>
+			</div>
+		{{/if}}
+	{{/if}}
+{{/if}}

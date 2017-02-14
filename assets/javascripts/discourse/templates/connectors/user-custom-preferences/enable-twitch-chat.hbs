@@ -1,0 +1,11 @@
+{{#if siteSettings.show_twitch_chat}}
+<div class="control-group enabletwitchchat">
+  <label class="control-label">Twitch Chat</label>
+  <div class="controls">
+    <label class='checkbox-label'>
+      {{input type="checkbox" checked=model.custom_fields.enable_twitch_chat}}
+      Embed Twitch Chat (Remember to press save after changing)
+    </label>
+  </div>
+</div>
+{{/if}}

@@ -1,0 +1,4 @@
+plugins:
+  show_twitch_chat:
+    default: false
+    client: true
