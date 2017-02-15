@@ -16,23 +16,38 @@
 					(function() {
 						var showChat 	= "Show itmeChat",
 								hideChat 	= "Hide itmeChat",
+								cookieName = "chatHidden",
 								animSpeed	= 0
 						;
-						$( "#chatbar-button" ).on( "click", function() {
+						
+						$("#chatbar-button").on( "click", function() {
 							if ($("#chatbar-chat").is(":visible")) {
+								$.cookie(cookieName, true, { expires: 365 });
 								$("#chatbar-chat").slideUp(animSpeed, function(e) {
 									$("#chatbar-button").text(showChat);
 								});
 							} else {
+								$.cookie(cookieName, false, { expires: 365 });
 								$("#chatbar-chat").slideDown(animSpeed, function(e) {
 									$("#chatbar-button").text(hideChat);
 								});
 							}
 						});
-						if ($("#chatbar-chat").is(":visible")) 
+						
+						if (typeof $.cookie(cookieName) !== 'undefined')
+						{
+							console.log("COOKIE: "+$.cookie(cookieName));
+							if ($.cookie(cookieName) == "true")
+								$("#chatbar-chat").slideUp(animSpeed);
+							else
+								$("#chatbar-chat").slideDown(animSpeed);
+						}	
+						
+						if ($("#chatbar-chat").is(":visible"))
 							$("#chatbar-button").text(hideChat);
 						else
 							$("#chatbar-button").text(showChat);
+						
 					})();
 				</script>
 			</div>
