@@ -17,36 +17,39 @@
 						var showChat 	= "Show itmeChat",
 								hideChat 	= "Hide itmeChat",
 								cookieName = "chatHidden",
+								divChatWrapper = "#chatbar-wrapper",
+								divChatBtn = "#chatbar-button",
+								divChat = "#chatbar-chat",
+								isVis = ":visible",
 								animSpeed	= 0
 						;
 						
-						$("#chatbar-button").on( "click", function() {
-							if ($("#chatbar-chat").is(":visible")) {
+						$(divChatBtn).on( "click", function() {
+							if ($(divChat).is(isVis)) {
 								$.cookie(cookieName, true, { expires: 365 });
-								$("#chatbar-chat").slideUp(animSpeed, function(e) {
-									$("#chatbar-button").text(showChat);
+								$(divChat).slideUp(animSpeed, function(e) {
+									$(divChatBtn).text(showChat);
 								});
 							} else {
 								$.cookie(cookieName, false, { expires: 365 });
-								$("#chatbar-chat").slideDown(animSpeed, function(e) {
-									$("#chatbar-button").text(hideChat);
+								$(divChat).slideDown(animSpeed, function(e) {
+									$(divChatBtn).text(hideChat);
 								});
 							}
 						});
 						
 						if (typeof $.cookie(cookieName) !== 'undefined')
 						{
-							console.log("COOKIE: "+$.cookie(cookieName));
 							if ($.cookie(cookieName) == "true")
-								$("#chatbar-chat").slideUp(animSpeed);
+								$(divChat).slideUp(animSpeed);
 							else
-								$("#chatbar-chat").slideDown(animSpeed);
+								$(divChat).slideDown(animSpeed);
 						}	
 						
-						if ($("#chatbar-chat").is(":visible"))
-							$("#chatbar-button").text(hideChat);
+						if ($(divChat).is(isVis))
+							$(divChatBtn).text(hideChat);
 						else
-							$("#chatbar-button").text(showChat);
+							$(divChatBtn).text(showChat);
 						
 					})();
 				</script>
